@@ -1,3 +1,20 @@
+<!--Directiva *ngIf, nos permite agregar una condicion a un elemento HTML para validar
+    si debe ser visualizado o no-->
+<h1>*ngIf</h1>
+<input
+  type="text"
+  [(ngModel)]="name"
+  #nameValid2="ngModel"
+  required
+  minlength="3"
+  maxlength="10"
+>
+<p *ngIf="nameValid2.valid ; else elseBlock">Hello, {{name}}</p>
+<ng-template #elseBlock>
+  <p>Name is valid</p>
+</ng-template>
+<hr>
+
 <!--Date Banding, permite el intercambio de datos bidireccional entre la vista y
     el componente usando ngModel el cual se debe importar en app.module.ts-->
 <h1>NgModel</h1>
@@ -8,6 +25,7 @@
 <input type="number" #ageValid="ngModel" min="18" max="45" required [(ngModel)]="age">
 <p>Valid age: {{ageValid.valid}}</p>
 <hr>
+
 <!--Event Binding, nos perimite escuchar eventos del HTML al componente.ts y ejecutar
     un metodo del componente.ts-->
 <h1>Event</h1>
