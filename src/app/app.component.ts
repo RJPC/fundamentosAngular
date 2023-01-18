@@ -7,20 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  name: string = '';
-  category: string = '';
-  quantity: number = 0;
-
   product = {
     name: '',
     category: '',
     quantity: 0
   }
 
-  products = [{name: 'Tomate', category: 'Perecederos', quantity: 10}]
+  products: {name: string, category: string, quantity: number}[] = []
 
   addProduct(){
-    this.products.push(this.product)
+    this.products.push(this.product);
+    this.product = {name: '', category:'',quantity:0};
   }
 
 }

@@ -3,22 +3,32 @@
     <label for="nameProduct">Name: </label>
     <input
       type="text"
-      id="nameProduct"
+      id="nameProduc"
       [(ngModel)]="product.name"
+      name="nameProduct"
       placeholder="Enter a product"
+      required
     />
     <label for="categoryProduct">Category: </label>
-    <input
+    <select name="category" id="categoryProduct"[(ngModel)]="product.category">
+      <option value="" disabled>Select Category</option>
+      <option value="Perecedero">Perishable</option>
+      <option value="Alimento">Food</option>
+      <option value="No Alimento">No Food</option>
+    </select>
+    <!--<input
       type="text"
       id="categoryProduct"
       [(ngModel)]="product.category"
+      name="category"
       placeholder="Enter a category"
-    />
+    />-->
     <label for="qty">Quantity: </label>
     <input
       type="number"
       id="qty"
       [(ngModel)]="product.quantity"
+      name="quantity"
       placeholder="Enter a quantity"
     />
     <button class="sendButton" (click)="addProduct()">Send</button>
@@ -27,18 +37,16 @@
   <!--Start Table-->
   <table class="table">
     <tr class="header">
+      <td>ID</td>
       <td>Product</td>
       <td>Category</td>
       <td>Quantity</td>
     </tr>
-    <tr *ngFor="let product of products">
-      <td>{{ product.name }}</td>
-      <td>{{ product.category }}</td>
-      <td>{{ product.quantity }}</td>
+    <tr *ngFor="let item of products; index as i">
+      <td>{{ i }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.quantity }}</td>
     </tr>
   </table>
-
-  <div>
-    <p>{{product.name}}</p>
-  </div>
 </body>
