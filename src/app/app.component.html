@@ -1,60 +1,44 @@
-<!--Directiva *ngIf, nos permite agregar una condicion a un elemento HTML para validar
-    si debe ser visualizado o no-->
-<h1>*ngIf</h1>
-<input
-  type="text"
-  [(ngModel)]="name"
-  #nameValid2="ngModel"
-  required
-  minlength="3"
-  maxlength="10"
->
-<p *ngIf="nameValid2.valid ; else elseBlock">Hello, {{name}}</p>
-<ng-template #elseBlock>
-  <p>Name is valid</p>
-</ng-template>
-<hr>
+<body>
+  <form id="formProduct">
+    <label for="nameProduct">Name: </label>
+    <input
+      type="text"
+      id="nameProduct"
+      [(ngModel)]="product.name"
+      placeholder="Enter a product"
+    />
+    <label for="categoryProduct">Category: </label>
+    <input
+      type="text"
+      id="categoryProduct"
+      [(ngModel)]="product.category"
+      placeholder="Enter a category"
+    />
+    <label for="qty">Quantity: </label>
+    <input
+      type="number"
+      id="qty"
+      [(ngModel)]="product.quantity"
+      placeholder="Enter a quantity"
+    />
+    <button class="sendButton" (click)="addProduct()">Send</button>
+  </form>
 
-<!--Date Banding, permite el intercambio de datos bidireccional entre la vista y
-    el componente usando ngModel el cual se debe importar en app.module.ts-->
-<h1>NgModel</h1>
-<p>Name: {{name}}</p>
-<input type="text" [(ngModel)]="name" required #nameValid="ngModel">
-<p>Valid name: {{nameValid.valid}}</p>
-<p>age: {{getAge()}}</p>
-<input type="number" #ageValid="ngModel" min="18" max="45" required [(ngModel)]="age">
-<p>Valid age: {{ageValid.valid}}</p>
-<hr>
+  <!--Start Table-->
+  <table class="table">
+    <tr class="header">
+      <td>Product</td>
+      <td>Category</td>
+      <td>Quantity</td>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+  </table>
 
-<!--Event Binding, nos perimite escuchar eventos del HTML al componente.ts y ejecutar
-    un metodo del componente.ts-->
-<h1>Event</h1>
-<button [disabled]="btnDisabled">Send</button>
-<button (click)="toggleButton()">Toggle Button</button>
-<p>Age: {{getAge()}}</p>
-<button (click)="decreaseAge()" [disabled]="disabledDecreaseAge">Decrease Age</button>
-<button (click)="increaseAge()" [disabled]="disabledIncreaseAge">Increase Age</button>
-<div class="box" (scroll)="onScroll($event)">
-  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita consequatur deserunt quo assumenda est atque aperiam doloribus modi magnam ipsum, provident dicta iste animi, facere quisquam reiciendis cumque, eveniet facilis.</p>
-</div>
-<p>Name: {{name}}</p>
-<input type="text" [value]="name" (keyup)="changesName($event)">
-<hr>
-
-<!--Property Binding, se utiliza para establecer valores para las propiedades
-    de los elementos o directivas HTML-->
-<h1>Propiedades</h1>
-<button disabled="false">Enviar</button>
-<input type="text" [value]="name" [disabled]="btnDisabled">
-<progress max="100" [value]="getAge()"></progress>
-<img [src]="img" alt="image random" width="100px">
-<hr>
-
-<!--String interpolation, con las {{}} se puede puedes imprimir
-  el valor de una variable, realizar operaciones matemáticas o hacer el llamado
-  a una función dentro del código HTML-->
-<h1>Hola Mundo</h1>
-<h2>{{'Hola Mundo'.repeat(5)}}</h2>
-<h3>3 + 3 = {{3 + 3}}</h3>
-<p>Hola, soy {{name}} y tengo {{getAge()}} a&ntilde;o</p>
-<img src={{img}} alt="image random" width="20%">
+  <div>
+    <p>{{product.name}}</p>
+  </div>
+</body>
