@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = 'Rahiber';
-  private age = 5;
+  age = 5;
   img = "https://source.unsplash.com/random/"
   progressMax = 100;
   disabledIncreaseAge = false;

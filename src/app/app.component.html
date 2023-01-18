@@ -1,3 +1,13 @@
+<!--Date Banding, permite el intercambio de datos bidireccional entre la vista y
+    el componente usando ngModel el cual se debe importar en app.module.ts-->
+<h1>NgModel</h1>
+<p>Name: {{name}}</p>
+<input type="text" [(ngModel)]="name" required #nameValid="ngModel">
+<p>Valid name: {{nameValid.valid}}</p>
+<p>age: {{getAge()}}</p>
+<input type="number" #ageValid="ngModel" min="18" max="45" required [(ngModel)]="age">
+<p>Valid age: {{ageValid.valid}}</p>
+<hr>
 <!--Event Binding, nos perimite escuchar eventos del HTML al componente.ts y ejecutar
     un metodo del componente.ts-->
 <h1>Event</h1>
