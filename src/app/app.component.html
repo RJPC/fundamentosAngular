@@ -1,3 +1,18 @@
+<!--Event Binding, nos perimite escuchar eventos del HTML al componente.ts y ejecutar
+    un metodo del componente.ts-->
+<h1>Event</h1>
+<button [disabled]="btnDisabled">Send</button>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>Age: {{getAge()}}</p>
+<button (click)="decreaseAge()" [disabled]="disabledDecreaseAge">Decrease Age</button>
+<button (click)="increaseAge()" [disabled]="disabledIncreaseAge">Increase Age</button>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita consequatur deserunt quo assumenda est atque aperiam doloribus modi magnam ipsum, provident dicta iste animi, facere quisquam reiciendis cumque, eveniet facilis.</p>
+</div>
+<p>Name: {{name}}</p>
+<input type="text" [value]="name" (keyup)="changesName($event)">
+<hr>
+
 <!--Property Binding, se utiliza para establecer valores para las propiedades
     de los elementos o directivas HTML-->
 <h1>Propiedades</h1>
@@ -6,7 +21,6 @@
 <progress max="100" [value]="getAge()"></progress>
 <img [src]="img" alt="image random" width="100px">
 <hr>
-
 
 <!--String interpolation, con las {{}} se puede puedes imprimir
   el valor de una variable, realizar operaciones matemáticas o hacer el llamado
