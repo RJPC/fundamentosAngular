@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  product = {
+  product: Product = {
     name: '',
     category: '',
-    quantity: 0
+    quantity: 0,
+    price: 0,
+    total: 0
   }
 
-  products: {name: string, category: string, quantity: number}[] = []
+  products: Product[] = [{name: 'Tomate', category: 'Perishable', quantity: 10, price: 3, total: 30}]
 
   addProduct(){
     this.products.push(this.product);
-    this.product = {name: '', category:'',quantity:0};
+    this.product = {name: '', category:'',quantity:0, price: 0, total: 0};
+  }
+
+  deleteProduct(index: number){
+    this.products.splice(index, 1);
   }
 
 }

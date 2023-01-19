@@ -24,17 +24,16 @@ form {
   font-weight: bold;
   color: white;
 
-  /* creamos nuestra malla (grid) */
+  /* creamos nuestra malla (grid)*/
   display  : grid;
   grid-gap : 20px;
   grid-template-columns : repeat(2, 1fr);
-  grid-template-rows    : 1.5em 1.5em 1.5em 1.5em;
+  grid-template-rows    : 1.5em 1.5em 1.5em 1.5em 1.5em;
 }
 
 .table
 {
   border: 1px solid black;
-  position: relative;
   width: 35%;
   height: auto;
   margin: 10px auto;
@@ -53,3 +52,12 @@ td{
  border: 1px solid black;
 }
 
+td.center
+{
+ text-align: center;
+}
+
+td.right
+{
+ text-align: right;
+}
