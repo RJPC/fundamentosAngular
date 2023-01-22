@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +12,15 @@ export class AppComponent {
     name: '',
     category: '',
     quantity: 0,
-    price: 0,
-    total: 0
+    cost: 0,
+    price: 0
   }
 
-  products: Product[] = [{name: 'Tomate', category: 'Perishable', quantity: 10, price: 3, total: 30}]
+  products: Product[] = [{name: 'Tomate', category: 'Perishable', quantity: 10, cost: 1.75, price: 3}]
 
   addProduct(){
     this.products.push(this.product);
-    this.product = {name: '', category:'',quantity:0, price: 0, total: 0};
+    this.product = {name: '', category:'',quantity:0, cost: 0, price: 0};
   }
 
   deleteProduct(index: number){
