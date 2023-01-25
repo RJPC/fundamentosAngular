@@ -1,79 +1,64 @@
-input
-{
-  width : 150px;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-label
-{
-  margin: 10px;
-}
-
-form {
-  position : relative;
-  width  : 35%;
-  height : auto;
-  margin : 0 auto;
-  padding: 1em;
-  box-sizing: border-box;
-  background : rgb(127, 127, 129);
-  border: 1px solid black;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: white;
-
-  /* creamos nuestra malla (grid)*/
-  display  : grid;
-  grid-gap : 20px;
-  grid-template-columns : repeat(2, 1fr);
-  grid-template-rows    : 1.5em 1.5em 1.5em 1.5em 1.5em;
-}
-
-.table
-{
-  border: 1px solid black;
-  width: 35%;
+.input-group {
+  //border: 1px solid black;
+  width: 30%;
   height: auto;
-  margin: 10px auto;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 5px;
   font-family: 'Courier New', Courier, monospace;
-}
-
-.header
-{
   font-weight: bold;
-  background: rgb(127, 127, 129);
-  text-align: center;
-  color: white;
+  font-size: large;
 }
 
-td{
- border: 1px solid black;
+input {
+  margin-top: 5px;
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+  background-color: rgb(241, 241, 241);
 }
 
-td.center
-{
- text-align: center;
+.input-alert{
+  border: 1px solid red;
+  background-color: rgb(238, 164, 164);
 }
 
-td.right
-{
- text-align: right;
+button {
+  margin-top: 15px;
+  height: 40px;
+  background-color: rgb(190, 238, 190);
+  border-radius: 5px;
+  border: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
 }
 
-div{
-  width: 35%;
-  margin: 0 auto;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+p.title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 25px;
 }
 
-.sendButton{
-  background-color: rgb(141, 243, 121);
+p.p-alert {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: red;
+  margin: 0;
 }
 
-.disabledButton{
-  pointer-events: none;
-  background-color: rgb(243, 121, 121);
+@media screen and (max-width: 44rem) {
+  label {
+    font-size: small;
+  }
+
+  .input-group {
+    width: 80%;
+  }
+
 }
