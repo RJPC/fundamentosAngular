@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './models/product.model';
+import { Register } from './models/register.model';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +8,14 @@ import { Product } from './models/product.model';
 })
 export class AppComponent {
 
-  product: Product = {
-    name: '',
-    category: '',
-    quantity: 0,
-    cost: 0,
-    price: 0
+  register: Register = {
+    username: '',
+    email: '',
+    password: ''
   }
 
-  products: Product[] = [{name: 'Tomate', category: 'Perishable', quantity: 10, cost: 1.75, price: 3}]
-
-  addProduct(){
-    this.products.push(this.product);
-    this.product = {name: '', category:'',quantity:0, cost: 0, price: 0};
-  }
-
-  deleteProduct(index: number){
-    this.products.splice(index, 1);
+  onRegister(){
+    console.log(this.register);
   }
 
 }

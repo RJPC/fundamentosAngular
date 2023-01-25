@@ -1,94 +1,43 @@
-<html>
-  <head>
-    <script src="https://kit.fontawesome.com/170dc740bc.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="center">
-      <h1>INVENTARIO</h1>
-    </div>
-    <form id="formProduct">
-      <label for="nameProduct">Name: </label>
-      <input
-        type="text"
-        id="nameProduc"
-        [(ngModel)]="product.name"
-        name="nameProduct"
-        placeholder="Enter a product"
-        required
-        #nameProduct="ngModel"
-      />
-      <label for="categoryProduct">Category: </label>
-      <select
-        name="category"
-        id="categoryProduct"
-        [(ngModel)]="product.category"
-        #category="ngModel"
+<form (ngSubmit)="onRegister()" #myForm="ngForm" >
+  <div class="input-group">
+    <p class="title">My Account</p>
+  </div>
+  <div class="input-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="register.username"
+      required
+      placeholder="Enter Username"
+      #username="ngModel"
       >
-        <option value="" disabled>Select Category</option>
-        <option value="Perishable">Perishable</option>
-        <option value="Food">Food</option>
-        <option value="No Food">No Food</option>
-      </select>
-      <label for="qty">Quantity: </label>
-      <input
-        type="number"
-        id="qty"
-        [(ngModel)]="product.quantity"
-        name="quantity"
-        #quantity="ngModel"
-      />
-      <label for="cost">Cost: </label>
-      <input
-        type="number"
-        id="cost"
-        [(ngModel)]="product.cost"
-        name="cost"
-        #cost="ngModel"
-      />
-      <label for="price">Price: </label>
-      <input
-        type="number"
-        id="price"
-        [(ngModel)]="product.price"
-        name="price"
-        #price="ngModel"
-      />
-      <button
-        [ngClass]=" nameProduct.invalid ||
-                    category.value == '' ||
-                    quantity.value == 0 ||
-                    cost.value == 0 ||
-                    price.value == 0
-                    ? 'disabledButton' : 'sendButton'" (click)="addProduct()">Send</button>
-    </form>
-
-    <!--Start Table-->
-    <table class="table">
-      <tr class="header">
-        <td>ID</td>
-        <td>Product</td>
-        <td>Category</td>
-        <td>Quantity</td>
-        <td>Cost</td>
-        <td>Price</td>
-        <td>Inventory value</td>
-        <td>Action</td>
-      </tr>
-      <tr *ngIf="products.length === 0">
-        <td class="center" colspan="5">There is no product</td>
-      </tr>
-      <tr *ngFor="let item of products; index as i">
-        <td>{{ i + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.category }}</td>
-        <td class="right">{{ item.quantity }}</td>
-        <td class="right">{{ item.cost | currency }}</td>
-        <td class="right">{{ item.price | currency }}</td>
-        <td class="right">{{ item.quantity * item.cost | currency }}</td>
-        <td class="center">
-          <i class="fa fa-solid fa-trash" (click)="deleteProduct(i)"></i>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>
+      <p ></p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      [(ngModel)]="register.email"
+      required
+      placeholder="Enter Email"
+      >
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input
+      type="text"
+      id="password"
+      name="password"
+      [(ngModel)]="register.password"
+      required
+      placeholder="Enter Password"
+      >
+  </div>
+  <div class="input-group">
+    <button [disabled]="myForm.invalid" type="submit">Send</button>
+  </div>
+</form>
