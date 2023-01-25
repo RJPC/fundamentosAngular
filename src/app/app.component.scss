@@ -68,3 +68,12 @@ div{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.sendButton{
+  background-color: rgb(141, 243, 121);
+}
+
+.disabledButton{
+  pointer-events: none;
+  background-color: rgb(243, 121, 121);
+}

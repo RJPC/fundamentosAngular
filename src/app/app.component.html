@@ -15,12 +15,14 @@
         name="nameProduct"
         placeholder="Enter a product"
         required
+        #nameProduct="ngModel"
       />
       <label for="categoryProduct">Category: </label>
       <select
         name="category"
         id="categoryProduct"
         [(ngModel)]="product.category"
+        #category="ngModel"
       >
         <option value="" disabled>Select Category</option>
         <option value="Perishable">Perishable</option>
@@ -33,17 +35,31 @@
         id="qty"
         [(ngModel)]="product.quantity"
         name="quantity"
+        #quantity="ngModel"
       />
       <label for="cost">Cost: </label>
-      <input type="number" id="cost" [(ngModel)]="product.cost" name="cost" />
+      <input
+        type="number"
+        id="cost"
+        [(ngModel)]="product.cost"
+        name="cost"
+        #cost="ngModel"
+      />
       <label for="price">Price: </label>
       <input
         type="number"
         id="price"
         [(ngModel)]="product.price"
         name="price"
+        #price="ngModel"
       />
-      <button class="sendButton" (click)="addProduct()">Send</button>
+      <button
+        [ngClass]=" nameProduct.invalid ||
+                    category.value == '' ||
+                    quantity.value == 0 ||
+                    cost.value == 0 ||
+                    price.value == 0
+                    ? 'disabledButton' : 'sendButton'" (click)="addProduct()">Send</button>
     </form>
 
     <!--Start Table-->
