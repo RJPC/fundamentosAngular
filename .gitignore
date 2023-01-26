@@ -44,3 +44,5 @@ Thumbs.db
 #Custom
 /src/images
 /src/assets/images
+.firebase*
+firebase.json
