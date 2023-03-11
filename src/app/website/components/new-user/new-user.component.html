@@ -1,0 +1,11 @@
+<section class="controls-section">
+  <h2>Formulario de Registro</h2>
+  <label for="name">Fisrt Name:</label>
+  <input class="controls-input"  type="text" id="name" name="name" [(ngModel)]="newUser.name">
+  <label for="email">Email:</label>
+  <input class="controls-input"  type="text" id="email" name="email" [(ngModel)]="newUser.email">
+  <label for="password">Password</label>
+  <input class="controls-input" type="password" id="password" name="password" [(ngModel)]="newUser.password">
+  <button type="submit" (click)="createUser()">Create User</button>
+  <p></p>
+</section>

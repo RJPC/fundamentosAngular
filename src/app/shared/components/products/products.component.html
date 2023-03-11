@@ -1,0 +1,48 @@
+<!-- <p>Fecha: {{ today | date: 'medium'}}</p>
+<p>La cantidad de item es: {{myShoppingCart.length}}</p>
+<p>El Total es: {{total | currency}}</p> -->
+<!-- <button
+  (click)="createNewProduct()"
+>create</button>
+
+<button
+  (click)="onShowProduct('500')"
+>Product not found</button> -->
+
+<button
+  [ngStyle]="{ width: '100px', 'margin-left': '5px' }"
+  (click)="prev()"
+  [disabled]="limit === 0"
+  *ngIf="products.length"
+>Previous</button>
+
+<button
+  [ngStyle]="{ width: '100px', 'margin-left': '5px' }"
+  (click)="next()"
+  [disabled]="(products | filterProduct : limit : offset).length % offset !== 0"
+  *ngIf="products.length"
+>Next</button>
+
+<div class="products--grid">
+  <app-product
+    [product]="product"
+    *ngFor="let product of products | filterProduct : limit : offset"
+    (addedProduct)="onAddToShoppingCart($event)"
+    (showProduct)="onShowProduct($event)"
+  ></app-product>
+</div>
+
+<!-- Section product detail -->
+<div class="product-detail" [class.active]="showProductDetail">
+  <div>
+    <button (click)="toggleProductDetail()">Close</button>
+    <p>{{statusDetail}}</p>
+    <h1>{{ productChosen?.title }}</h1>
+    <section>
+      <img *ngFor="let img of productChosen?.images" [src]="img" alt="images" />
+    </section>
+    <p>{{ productChosen?.description }}</p>
+    <button (click)="updateProduct()">Edit</button>
+    <button (click)="deleteProduct()">Delete</button>
+  </div>
+</div>

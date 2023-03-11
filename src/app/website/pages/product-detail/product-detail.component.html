@@ -1,0 +1,14 @@
+<!-- Section product detail -->
+<div class="product-detail">
+  <div>
+    <button (click)="goToBack()">Close</button>
+    <!-- <p>{{statusDetail}}</p> -->
+    <h1>{{ productDetail?.title }}</h1>
+    <section>
+      <img *ngFor="let img of productDetail?.images" [src]="img" alt="images" />
+    </section>
+    <p>{{ productDetail?.description }}</p>
+    <button (click)="updateProduct()">Edit</button>
+    <button (click)="deleteProduct()">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<a routerLink="/product/{{product.id}}">
+  <app-img *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
+</a>
+<h1>{{product.price | currency:'USD'}}</h1>
+<p>{{product.title}}</p>
+<p>{{product.tax | currency:'USD'}}</p>
+<!-- <p>
+  <a [href]="product.images[0]" download>Download Image</a>
+  &nbsp;
+  <button (click)="downloadFile()">Download PDF</button>
+  &nbsp;
+  <input type="file" (change)="uploadFile($event)">
+  <img *ngIf="imgRta" [src]="imgRta" alt="Imagen">
+  &nbsp;
+  <a href="./../../../assets/files/texto.txt" download>Download File</a>
+</p> -->
+<button routerLink="." [queryParams]="{product: product.id}">View Detail</button>
+<!-- <button (click)="onShowProduct()">View Detail</button> -->
+<!-- <button routerLink="/product/{{product.id}}">View Detail</button> -->
+<button (click)="onAddToCart()">Add To Cart</button>

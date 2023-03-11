@@ -1,0 +1,18 @@
+<!-- <button (click)="loginUser()">Login</button>
+<button (click)="logout()">Logout</button>
+<button (click)="createUser()">Create User</button>
+<button (click)="getAllUsers()">Get All Users</button>
+<button (click)="getProfile()">Get Profile</button> -->
+<!-- <head>
+  <link rel="stylesheet" href="./login.component.scss">
+</head> -->
+
+<section class="controls-section">
+  <h2>Formulario de Login</h2>
+  <label for="email">Email:</label>
+  <input class="controls-input"  type="text" id="email" name="email" [(ngModel)]="user.email">
+  <label for="password">Password</label>
+  <input class="controls-input" type="password" id="password" name="password" [(ngModel)]="user.password">
+  <button type="submit" (click)="loginAndProfile()">Login</button>
+  <p><a routerLink="/createUser">Create new user</a></p>
+</section>
